@@ -1,225 +1,365 @@
 html {
-        scroll-behavior: smooth;
-      }
-      main section {
-        scroll-margin-top: 72px; /* header height + a little breathing room */
-      }
+  scroll-behavior: smooth;
+}
+main section {
+  scroll-margin-top: 95px; /* header height + a little breathing room */
+}
 
-      body {
-        margin: 0;
-        font-family:
-          Inter,
-          system-ui,
-          -apple-system,
-          Segoe UI,
-          Roboto,
-          Helvetica,
-          Arial,
-          sans-serif;
-        background: var(--bg);
-        color: var(--text);
-      }
+body {
+  margin: 0;
+  font-family:
+    Inter,
+    system-ui,
+    -apple-system,
+    Segoe UI,
+    Roboto,
+    Helvetica,
+    Arial,
+    sans-serif;
 
-      .app {
-        display: flex;
-        min-height: 100vh;
-      }
+  font-size: 13px; /* airline-standard base */
+  line-height: 1.45;
+  background: var(--bg);
+  color: var(--text);
 
-      .content {
-        display: flex;
-        flex-direction: column;
-        flex: 1;
-        min-width: 0;
-      }
+  overflow-y: scroll; /* forces stable scrollbar */
+}
 
-      .sidebar {
-        position: sticky;
-        top: 56px;
-        height: calc(100vh - 56px);
-        overflow-y: auto;
-        width: 180px;
-        background: #ffffff;
-        border-right: 1px solid var(--card-border);
-        padding: 1rem 0.75rem;
-        display: flex;
-        flex-direction: column;
-        gap: 0.25rem;
-      }
+.app {
+  display: flex;
+  min-height: 100vh;
+}
 
-      .nav-title {
-        font-size: 0.65rem;
-        letter-spacing: 0.15em;
-        color: var(--muted);
-        margin-bottom: 0.75rem;
-        text-transform: uppercase;
-      }
+.content {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 0;
+  margin-left: 200px;
+}
 
-      .sidebar a {
-        color: var(--muted);
-        text-decoration: none;
-        font-size: 0.75rem;
-        padding: 0.35rem 0.5rem;
-        border-radius: 6px;
-        transition:
-          background 0.2s ease,
-          color 0.2s ease;
-      }
+.sidebar {
+  position: fixed;
+  top: 80px;
+  left: 0;
 
-      .sidebar a.active {
-        background: rgba(37, 99, 235, 0.1);
-        color: var(--accent);
-        font-weight: 600;
-      }
+  height: calc(100vh - 56px);
+  width: 180px;
 
-      .sidebar a:hover {
-        background: rgba(56, 189, 248, 0.15);
-        color: var(--accent);
-      }
+  background: var(--panel);
+  border-right: 1px solid var(--card-border);
+  padding: 1rem 0.75rem;
 
-      :root {
-        --bg: #f8fafc;
-        --panel: #ffffff;
-        --card: #ffffff;
-        --card-border: #e5e7eb;
-        --text: #0f172a;
-        --muted: #64748b;
-        --accent: #2563eb;
-        --ok: #16a34a;
-        --warn: #ca8a04;
-        --bad: #dc2626;
-      }
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
 
-      * {
-        box-sizing: border-box;
-      }
+  overflow-y: auto;
+  will-change: transform;
+}
 
-      body {
-        margin: 0;
-        font-family:
-          Inter,
-          system-ui,
-          -apple-system,
-          Segoe UI,
-          Roboto,
-          Helvetica,
-          Arial,
-          sans-serif;
-        background: var(--bg);
-        color: var(--text);
-      }
+.nav-title {
+  font-size: 0.6rem;
+  letter-spacing: 0.2em;
+  font-weight: 600;
+  color: var(--muted);
+  margin-bottom: 0.75rem;
+  text-transform: uppercase;
+}
 
-      header {
-        position: sticky;
-        top: 0;
-        z-index: 20;
-        padding: 0.75rem 1.25rem;
-        height: 56px;
-        background: #ffffff;
-        border-bottom: 1px solid var(--card-border);
-      }
+.sidebar a {
+  color: var(--muted);
+  font-weight: 500;
+  text-decoration: none;
+  padding: 0.35rem 0.5rem;
+  border-radius: 6px;
+  transition:
+    background 0.2s ease,
+    color 0.2s ease;
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+}
 
-      header h1 {
-        margin: 0;
-        font-size: 1.25rem;
-        font-weight: 600;
-        letter-spacing: 0.02em;
-      }
+.sidebar a.active {
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-weight: 600;
+}
 
-      main {
-        padding: 1.25rem;
-        display: grid;
-        gap: 1rem;
-        flex: 1;
-      }
+.sidebar a:hover {
+  background: rgba(56, 189, 248, 0.15);
+  color: var(--accent);
+}
 
-      .card {
-        background: var(--card);
-        border: 1px solid var(--card-border);
-        border-radius: 10px;
-        padding: 1rem 1.25rem;
-        box-shadow: none;
-      }
+:root {
+  /* Lufthansa Light */
+  --bg: #f4f6f8;
+  --panel: #ffffff;
+  --card: #ffffff;
+  --card-border: #d1d5db;
 
-      .card h2 {
-        margin: 0 0 1rem;
-        font-size: 0.8rem;
-        font-weight: 600;
-        text-transform: uppercase;
-        letter-spacing: 0.12em;
-        color: var(--muted);
-      }
+  --text: #0b1f33;
+  --muted: #5b6b7a;
 
-      .grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-        gap: 0.5rem 0.75rem;
-      }
+  --accent: #05164d; /* Lufthansa Navy */
+  --accent-soft: rgba(5, 22, 77, 0.08);
 
-      .item {
-        font-size: 0.85rem;
-        line-height: 1.4;
-      }
+  --ok: #1f9d55;
+  --warn: #d97706;
+  --bad: #c81e1e;
+}
 
-      .label {
-        font-size: 0.65rem;
-        text-transform: uppercase;
-        color: var(--muted);
-        letter-spacing: 0.08em;
-      }
+/* DARK MODE */
+body.dark {
+  --bg: #0b1220;
+  --panel: #0f172a;
+  --card: #111827;
+  --card-border: #1f2933;
 
-      table {
-        width: 100%;
-        border-collapse: collapse;
-        font-size: 0.78rem;
-      }
+  --text: #e5e7eb;
+  --muted: #9ca3af;
 
-      th,
-      td {
-        padding: 0.35rem 0.35rem;
-        border-bottom: 1px solid var(--card-border);
-        text-align: left;
-        vertical-align: top;
-      }
+  --accent: #60a5fa;
+  --accent-soft: rgba(96, 165, 250, 0.15);
+}
 
-      th {
-        font-size: 0.65rem;
-        color: var(--muted);
-        text-transform: uppercase;
-        letter-spacing: 0.08em;
-      }
+header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  padding: 0.75rem 1.25rem;
+  height: 56px;
+  background: var(--panel);
+  border-bottom: 1px solid var(--card-border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
 
-      .badge {
-        display: inline-block;
-        padding: 0.15rem 0.45rem;
-        border-radius: 999px;
-        font-size: 0.65rem;
-        font-weight: 600;
-      }
+header h1 {
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
 
-      .ok {
-        background: rgba(34, 197, 94, 0.15);
-        color: var(--ok);
-      }
-      .warn {
-        background: rgba(250, 204, 21, 0.15);
-        color: var(--warn);
-      }
-      .bad {
-        background: rgba(239, 68, 68, 0.15);
-        color: var(--bad);
-      }
+main {
+  padding: 1.25rem;
+  display: grid;
+  gap: 1rem;
+  flex: 1;
+}
 
-      footer {
-        text-align: center;
-        padding: 2rem 1rem;
-        font-size: 0.65rem;
-        color: var(--muted);
-        background: var(--bg);
-      }
+.card {
+  background: var(--card);
+  border: 1px solid var(--card-border);
+  border-radius: 8px;
+  padding: 1rem 1.25rem;
+  box-shadow: none;
+}
 
-      .section-note {
-        font-size: 0.78rem;
-        color: var(--text);
-        line-height: 1.6;
-        white-space: pre-line;
-      }
+.card h2 {
+  margin: 0 0 0.85rem;
+  font-size: 0.68rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--muted);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 0.5rem 0.75rem;
+}
+
+.item {
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--text);
+  line-height: 1.4;
+}
+
+.label {
+  font-size: 0.62rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--muted);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.72rem;
+  line-height: 1.45;
+  background: transparent;
+}
+thead th {
+  background: transparent;
+  color: var(--muted);
+}
+th,
+td {
+  padding: 0.35rem 0.35rem;
+  border-bottom: 1px solid var(--card-border);
+  text-align: left;
+  vertical-align: top;
+}
+td {
+  font-weight: 500;
+}
+th {
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  letter-spacing: 0.08em;
+}
+
+.badge {
+  display: inline-block;
+  padding: 0.15rem 0.45rem;
+  border-radius: 999px;
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+.ok {
+  background: rgba(34, 197, 94, 0.15);
+  color: var(--ok);
+}
+.warn {
+  background: rgba(250, 204, 21, 0.15);
+  color: var(--warn);
+}
+.bad {
+  background: rgba(239, 68, 68, 0.15);
+  color: var(--bad);
+}
+
+footer {
+  text-align: center;
+  padding: 2rem 1rem;
+  font-size: 0.65rem;
+  color: var(--muted);
+  background: var(--bg);
+}
+
+.section-note {
+  font-size: 0.78rem;
+  color: var(--text);
+  line-height: 1.6;
+  white-space: pre-line;
+}
+.theme-toggle {
+  background: transparent;
+  border: 1px solid var(--card-border);
+  padding: 0.35rem 0.6rem;
+  font-size: 0.7rem;
+  border-radius: 6px;
+  cursor: pointer;
+  color: var(--text);
+}
+
+.theme-toggle:hover {
+  background: var(--accent-soft);
+}
+/* ===============================
+   TABLET & MOBILE COLLAPSE
+   =============================== */
+
+@media (max-width: 1023px) {
+  .sidebar {
+    transform: translateX(-100%);
+    transition: transform 0.25s ease;
+    z-index: 50;
+  }
+
+  .sidebar.open {
+    transform: translateX(0);
+  }
+
+  .content {
+    margin-left: 0;
+  }
+
+  body.sidebar-open {
+    overflow: hidden;
+  }
+}
+.sidebar-toggle {
+  background: transparent;
+  border: 1px solid var(--card-border);
+  padding: 0.35rem 0.6rem;
+  font-size: 0.8rem;
+  border-radius: 6px;
+  cursor: pointer;
+  color: var(--text);
+  margin-right: 0.75rem;
+}
+
+.sidebar-toggle:hover {
+  background: var(--accent-soft);
+}
+/* ===============================
+   COMPACT LUFTHANSA THEME SWITCH
+   =============================== */
+
+.theme-switch {
+  position: relative;
+  width: 52px; /* ↓ from 64 */
+  height: 24px; /* ↓ from 30 */
+  border-radius: 999px;
+  cursor: pointer;
+
+  background: #05164d; /* Lufthansa Navy */
+  display: flex;
+  align-items: center;
+  padding: 0 6px;
+  box-sizing: border-box;
+
+  transition: background 0.25s ease;
+}
+
+/* Icons */
+.theme-switch .icon {
+  font-size: 0.65rem; /* ↓ */
+  z-index: 2;
+  color: white;
+  opacity: 0.9;
+}
+
+.theme-switch .sun {
+  margin-right: auto;
+}
+
+.theme-switch .moon {
+  margin-left: auto;
+}
+
+/* Knob */
+.theme-switch .knob {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 20px; /* ↓ */
+  height: 20px; /* ↓ */
+  background: #ffffff;
+  border-radius: 50%;
+  transition: transform 0.25s ease;
+  z-index: 1;
+}
+
+/* DARK MODE STATE */
+body.dark .theme-switch {
+  background: #020617;
+}
+
+body.dark .theme-switch .knob {
+  transform: translateX(28px); /* recalculated */
+}
