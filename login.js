@@ -21,7 +21,7 @@ const auth = getAuth(app);
 // Auto-redirect if already logged in
 onAuthStateChanged(auth, (user) => {
   if (user) {
-    window.location.href = "index.html";
+    window.location.href = "index";
   }
 });
 
@@ -37,7 +37,7 @@ document.getElementById("loginForm").addEventListener("submit", (e) => {
 
   signInWithEmailAndPassword(auth, email, password)
     .then(() => {
-      window.location.href = "index.html";
+      window.location.href = "index";
     })
     .catch((error) => {
       if (error.code === "auth/wrong-password") {
@@ -63,7 +63,7 @@ document.getElementById("createAccountBtn").addEventListener("click", () => {
 
   createUserWithEmailAndPassword(auth, email, password)
     .then(() => {
-      window.location.href = "index.html";
+      window.location.href = "index";
     })
     .catch((error) => {
       if (error.code === "auth/email-already-in-use") {
