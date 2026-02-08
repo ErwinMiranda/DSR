@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Secure Login</title>
+
+    <link rel="stylesheet" href="login.css" />
+  </head>
+
+  <body>
+    <div class="login-wrapper">
+      <div class="login-card">
+        <h1>Daily Status Report</h1>
+        <p class="subtitle">Secure Access</p>
+
+        <form id="loginForm">
+          <label>Email</label>
+          <input type="email" id="email" required />
+
+          <label>Password</label>
+          <input type="password" id="password" required />
+
+          <button type="submit">Sign In</button>
+          <button type="button" id="createAccountBtn" class="secondary">
+            Create Password
+          </button>
+        </form>
+
+        <div class="error" id="errorMsg"></div>
+      </div>
+    </div>
+
+    <!-- Firebase -->
+    <script type="module" src="login.js"></script>
+  </body>
+</html>
