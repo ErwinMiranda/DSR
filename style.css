@@ -363,3 +363,18 @@ body.dark .theme-switch {
 body.dark .theme-switch .knob {
   transform: translateX(28px); /* recalculated */
 }
+.logout-btn {
+  background: transparent;
+  border: 1px solid var(--card-border);
+  padding: 0.35rem 0.6rem;
+  font-size: 0.7rem;
+  border-radius: 999px;
+  cursor: pointer;
+  color: var(--text);
+  letter-spacing: 0.04em;
+}
+
+.logout-btn:hover {
+  background: var(--accent-soft);
+  color: var(--accent);
+}
