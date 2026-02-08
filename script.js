@@ -1,3 +1,28 @@
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js";
+import {
+  getAuth,
+  onAuthStateChanged,
+  signOut,
+} from "https://www.gstatic.com/firebasejs/10.8.1/firebase-auth.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyCUNjFesHA_nMEsULylFlEdNZHy-MlT7_o",
+  authDomain: "webmilestoneplan.firebaseapp.com",
+  projectId: "webmilestoneplan",
+  storageBucket: "webmilestoneplan.firebasestorage.app",
+  messagingSenderId: "757067401738",
+  appId: "1:757067401738:web:697d0440b4aa7264562df3",
+};
+
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+
+onAuthStateChanged(auth, (user) => {
+  if (!user) {
+    window.location.href = "login.html";
+  }
+});
+
 const sections = document.querySelectorAll("main section");
 const navLinks = document.querySelectorAll(".sidebar a");
 
@@ -90,3 +115,12 @@ navLinks.forEach((link) => {
     }
   });
 });
+const logoutBtn = document.getElementById("logoutBtn");
+
+if (logoutBtn) {
+  logoutBtn.addEventListener("click", () => {
+    signOut(auth).then(() => {
+      window.location.href = "login.html";
+    });
+  });
+}
