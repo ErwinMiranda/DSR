@@ -4,7 +4,11 @@ import {
   onAuthStateChanged,
   signOut,
 } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-auth.js";
-
+import {
+  getFirestore,
+  doc,
+  getDoc,
+} from "https://www.gstatic.com/firebasejs/10.8.1/firebase-firestore.js";
 const firebaseConfig = {
   apiKey: "AIzaSyCUNjFesHA_nMEsULylFlEdNZHy-MlT7_o",
   authDomain: "webmilestoneplan.firebaseapp.com",
@@ -15,11 +19,37 @@ const firebaseConfig = {
 };
 
 const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
+const auth = getAuth();
+const db = getFirestore();
 
-onAuthStateChanged(auth, (user) => {
+const appEl = document.getElementById("app");
+const loadingEl = document.getElementById("authLoading");
+
+onAuthStateChanged(auth, async (user) => {
   if (!user) {
-    window.location.href = "login";
+    window.location.href = "login.html";
+    return;
+  }
+
+  const email = user.email.toLowerCase();
+
+  try {
+    const ref = doc(db, "allowed_users", email);
+    const snap = await getDoc(ref);
+
+    if (!snap.exists() || snap.data().enabled !== true) {
+      await signOut(auth);
+      window.location.href = "login.html?unauthorized=1";
+      return;
+    }
+
+    // ✅ APPROVED → show app
+    loadingEl.style.display = "none";
+    appEl.classList.remove("hidden");
+  } catch (err) {
+    // ❌ Blocked by rules or error
+    await signOut(auth);
+    window.location.href = "login.html?unauthorized=1";
   }
 });
 
@@ -120,7 +150,7 @@ const logoutBtn = document.getElementById("logoutBtn");
 if (logoutBtn) {
   logoutBtn.addEventListener("click", () => {
     signOut(auth).then(() => {
-      window.location.href = "login";
+      window.location.href = "login.html";
     });
   });
 }
