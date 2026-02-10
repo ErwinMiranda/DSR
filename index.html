@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Daily Status Report – RP-C9905</title>
+    <title>Daily Status Report</title>
 
     <!-- External CSS -->
     <link rel="stylesheet" href="style.css" />
@@ -13,15 +13,21 @@
  <header>
   <button class="sidebar-toggle" id="sidebarToggle">☰</button>
 
-  <h1>Daily Status Report · RP-C9905 · A321-231</h1>
+  <h1 id="reportTitle">
+  Daily Status Report ·
+  <span id="tailSign">—</span> ·
+  <span id="aircraftType">—</span>
+</h1>
+
   <div style="display:flex; gap:0.5rem; align-items:center;">
     <button class="logout-btn" id="logoutBtn">Logout</button>
 
-  <div class="theme-switch" id="themeToggle" aria-label="Toggle theme">
-  <span class="icon sun">☀</span>
-  <span class="icon moon">☾</span>
-  <div class="knob"></div>
-</div>
+    <div class="theme-switch" id="themeToggle" aria-label="Toggle theme">
+      <span class="icon sun">☀</span>
+      <span class="icon moon">☾</span>
+    </div>
+      <div class="knob"></div>
+    </div>
 
 </header>
 
@@ -50,31 +56,45 @@
      <div class="content">
         <main>
           <!-- REPORT SUMMARY -->
-          <section id="summary" class="card">
-            <h2>Report Summary</h2>
-            <div class="grid">
-              <div class="item">
-                <div class="label">Report Date</div>
-                30 JUL 25
+            <section id="summary" class="card">
+              <h2>Report Summary</h2>
+              <div class="grid">
+
+                <div class="item">
+                  <div class="label">Report Date</div>
+                  <span id="reportDate"></span>
+                </div>
+
+                <div class="item">
+                  <div class="label">Day No.</div>
+                  <input
+                          id="dayNoInput"
+                          type="number"
+                          min="1"
+                          placeholder="Day"
+                           class="day-input"
+                        />
+
+                </div>
+
+                <div class="item">
+                  <div class="label">Days</div>
+                  <span id="totalDays"></span>
+                </div>
+
+                <div class="item">
+                  <div class="label">Start Date</div>
+                  <span id="startDate"></span>
+                </div>
+
+                <div class="item">
+                  <div class="label">End Date</div>
+                  <span id="endDate"></span>
+                </div>
+
               </div>
-              <div class="item">
-                <div class="label">Day No.</div>
-                14
-              </div>
-              <div class="item">
-                <div class="label">Days</div>
-                30
-              </div>
-              <div class="item">
-                <div class="label">Start Date</div>
-                30 JUL 25
-              </div>
-              <div class="item">
-                <div class="label">End Date</div>
-                15 AUG 25
-              </div>
-            </div>
-          </section>
+            </section>
+
 
           <!-- GENERAL INFORMATION -->
           <section id="general" class="card">
@@ -82,43 +102,43 @@
             <div class="grid">
               <div class="item">
                 <div class="label">Customer</div>
-                PAL
+                <span id="gi-customer"></span>
               </div>
               <div class="item">
                 <div class="label">Agency</div>
-                LTP
+                <span id="gi-agency"></span>
               </div>
               <div class="item">
                 <div class="label">Tail Sign</div>
-                RP-C9905
+                <span id="gi-tailsign"></span>
               </div>
               <div class="item">
                 <div class="label">Station</div>
-                MNL
+               <span id="gi-station"></span>
               </div>
               <div class="item">
                 <div class="label">Aircraft Type</div>
-                A321-231
+               <span id="gi-aircrafttype"></span>
               </div>
               <div class="item">
                 <div class="label">Bay</div>
-                BAY 4R
+               <span id="gi-bay"></span>
               </div>
               <div class="item">
                 <div class="label">MSN</div>
-                5820
+                <span id="gi-msn"></span>
               </div>
               <div class="item">
                 <div class="label">Work Order</div>
-                65626874
+               <span id="gi-workorder"></span>
               </div>
               <div class="item">
                 <div class="label">Check Type</div>
-                AdHOC
+                <span id="gi-checktype"></span>
               </div>
               <div class="item">
                 <div class="label">Work Pack</div>
-                CABIN RECONFIG + S1 / S2
+               <span id="gi-workpack"></span>
               </div>
             </div>
           </section>
@@ -135,53 +155,40 @@
                   <th>Contact</th>
                 </tr>
               </thead>
-              <tbody>
-                <tr>
-                  <td>Customer</td>
-                  <td>Project Manager</td>
-                  <td>Matthew S. Quejada</td>
-                  <td>Matthew_quejada@pal.com.ph</td>
-                </tr>
-                <tr>
-                  <td>Customer</td>
-                  <td>OST</td>
-                  <td>Patricia Ana Marie Botor</td>
-                  <td>Patricia_botor@pal.com.ph</td>
-                </tr>
-                <tr>
-                  <td>LTP</td>
-                  <td>Bay Manager</td>
-                  <td>Christian C. Libut</td>
-                  <td>Christian.libut@lht-philippines.com</td>
-                </tr>
-                <tr>
-                  <td>LTP</td>
-                  <td>Key Account Manager</td>
-                  <td>Noel Anastacio</td>
-                  <td>Noel.anastacio@lht-philippines.com</td>
-                </tr>
+             <tbody id="contactsBody">
+                
               </tbody>
             </table>
           </section>
 
           <!-- OVERALL LAYOVER STATUS -->
-          <section id="status" class="card">
-            <h2>Overall Layover Status</h2>
-            <div class="grid">
-              <div class="item">
-                Inspection <span class="badge ok">Completed</span>
-              </div>
-              <div class="item">
-                Rectification <span class="badge warn">Ongoing</span>
-              </div>
-              <div class="item">
-                Reinstallation <span class="badge warn">Pending</span>
-              </div>
-              <div class="item">
-                Final <span class="badge bad">Not Started</span>
-              </div>
-            </div>
-          </section>
+<section id="status" class="card">
+  <h2>Overall Layover Status</h2>
+  <div class="grid">
+
+    <div class="item">
+      Inspection
+      <span id="ls-inspection" class="badge">-</span>
+    </div>
+
+    <div class="item">
+      Rectification
+      <span id="ls-rectification" class="badge">-</span>
+    </div>
+
+    <div class="item">
+      Reinstallation
+      <span id="ls-reinstallation" class="badge">-</span>
+    </div>
+
+    <div class="item">
+      Final
+      <span id="ls-final" class="badge">-</span>
+    </div>
+
+  </div>
+</section>
+
 
           <!-- LAYOVER DATES -->
           <section id="dates" class="card">
@@ -189,19 +196,19 @@
             <div class="grid">
               <div class="item">
                 <div class="label">Arrival</div>
-                17 JUL 25 · 0700H
+                <span id="ld-arrival">-</span>
               </div>
               <div class="item">
                 <div class="label">Departure</div>
-                15 AUG 25 · 0700H
+                <span id="ld-departure">-</span>
               </div>
               <div class="item">
                 <div class="label">Flight Type</div>
-                Ferry
+                <span id="ld-flighttype">-</span>
               </div>
               <div class="item">
                 <div class="label">Planned TAT</div>
-                30 Days
+                <span id="ld-plannedtat">-</span>
               </div>
             </div>
           </section>
@@ -217,15 +224,10 @@
                   <th>Details</th>
                 </tr>
               </thead>
-              <tbody>
-                <tr>
-                  <td>ENGINE 3 RH T-REV</td>
-                  <td>ENG-E</td>
-                  <td>Requires shop repair as per Matthew</td>
-                </tr>
-              </tbody>
+              <tbody id="tatBody"></tbody>
             </table>
           </section>
+
 
           <!-- MILESTONES -->
           <section id="milestones" class="card">
@@ -240,52 +242,10 @@
                   <th>Remarks</th>
                 </tr>
               </thead>
-              <tbody>
-                <tr>
-                  <td>Start of Maintenance</td>
-                  <td>17 JUL 25</td>
-                  <td>-</td>
-                  <td>Y</td>
-                  <td></td>
-                </tr>
-                <tr>
-                  <td>A/C ON Jacks</td>
-                  <td>17 JUL 25</td>
-                  <td>-</td>
-                  <td>Y</td>
-                  <td></td>
-                </tr>
-                <tr>
-                  <td>Power OFF</td>
-                  <td>17 JUL 25</td>
-                  <td>18 JUL 25</td>
-                  <td>N</td>
-                  <td>Affected by movement</td>
-                </tr>
-                <tr>
-                  <td>End of Inspection Phase</td>
-                  <td>26 JUL 25</td>
-                  <td>-</td>
-                  <td>Y</td>
-                  <td></td>
-                </tr>
-                <tr>
-                  <td>Engine Run Up</td>
-                  <td>10 AUG 25</td>
-                  <td>-</td>
-                  <td>N</td>
-                  <td></td>
-                </tr>
-                <tr>
-                  <td>Redelivery</td>
-                  <td>15 AUG 25</td>
-                  <td>-</td>
-                  <td>N</td>
-                  <td></td>
-                </tr>
-              </tbody>
+              <tbody id="milestonesBody"></tbody>
             </table>
           </section>
+
 
           <!-- AIRCRAFT TASK CARD STATUS -->
           <section id="taskcards" class="card">
@@ -301,38 +261,20 @@
                   <th>Remarks</th>
                 </tr>
               </thead>
-              <tbody>
-                <tr>
-                  <td>Routine</td>
-                  <td>539</td>
-                  <td>299</td>
-                  <td>240</td>
-                  <td>45%</td>
-                  <td>Updated 1021H / 30 JUL 25</td>
-                </tr>
-                <tr>
-                  <td>Non-Routine</td>
-                  <td>318</td>
-                  <td>275</td>
-                  <td>43</td>
-                  <td>14%</td>
-                  <td>Updated 1021H / 30 JUL 25</td>
-                </tr>
-              </tbody>
+              <tbody id="taskcardBody"></tbody>
             </table>
           </section>
 
-          <!-- GENERAL HIGHLIGHTS -->
-          <section id="highlights" class="card">
-            <h2>General Highlights</h2>
-            <div class="section-note">
-              Integration of GX Mod in this layover – SB provided and awaiting
-              Planning review. PAL to provide status of tools and modkits
-              (required by July 28). Parts Transfer to cater AOG PAL Aircraft: -
-              1ea Rod Assy 3341MU (NR 135) - 2ea Inlet Cowls (NR 023, 024) - 2ea
-              Trev Flexshafts (NR 025, 028) - 2ea P2T2 Sensors (NR 029, 030)
-            </div>
-          </section>
+
+        <!-- GENERAL HIGHLIGHTS -->
+        <section id="highlights" class="card">
+          <h2>General Highlights</h2>
+
+          <div id="highlightsBody" class="section-note">
+            <!-- injected by JS -->
+          </div>
+        </section>
+
 
           <!-- DETAILED WORK CENTER STATUS -->
           <section id="workcenter" class="card">
@@ -344,233 +286,89 @@
                   <th>Status / Progress</th>
                 </tr>
               </thead>
-              <tbody>
-                <tr>
-                  <td>AVI</td>
-                  <td>
-                    Seq 348 (70%), Seq 350 (35%), Seq 352 (50%) – Avio
-                    Compartment electrical routing ongoing
-                  </td>
-                </tr>
-                <tr>
-                  <td>CAB</td>
-                  <td>
-                    AFT Galley/Lav installation after water barrier & NTF; ATA
-                    25 floor panels; ATA 23 brackets FR21–23
-                  </td>
-                </tr>
-                <tr>
-                  <td>CRG / ENG</td>
-                  <td>
-                    Cargo panels pre-close; NR rectification; Eng 1 inlet cowl
-                    installed; anti-ice duct restoration ongoing
-                  </td>
-                </tr>
-                <tr>
-                  <td>FLC / LDG</td>
-                  <td>NR rectification ongoing</td>
-                </tr>
-                <tr>
-                  <td>STR</td>
-                  <td>
-                    SEQ 369 brackets installation; Zones: Z1 100%, Z2 45%, Z3
-                    85%, Z4 45%
-                  </td>
-                </tr>
-                <tr>
-                  <td>SHOP</td>
-                  <td>
-                    AFT CAB water barrier & NTF; insulation repair; Seq 404
-                    Galley 5 Mod at 95%
-                  </td>
-                </tr>
-              </tbody>
+              <tbody id="workcenterBody"></tbody>
             </table>
           </section>
 
           <!-- INCOMING DEFER DEFECTS -->
-          <section id="idd" class="card">
-            <h2>Incoming Defer Defects (IDD)</h2>
-            <table>
-              <thead>
-                <tr>
-                  <th>Item</th>
-                  <th>Task Card</th>
-                  <th>Customer Ref</th>
-                  <th>Description</th>
-                  <th>Status</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>1</td>
-                  <td>N/R-00001</td>
-                  <td>MDDR 216197</td>
-                  <td>
-                    Continuation of compliance A320-323100-02-1-01 (NLG only)
-                  </td>
-                  <td>OPEN</td>
-                </tr>
-                <tr>
-                  <td>2</td>
-                  <td>N/R-00002</td>
-                  <td>MDDR 224011</td>
-                  <td>EY seat life vest box broken – 20 EA</td>
-                  <td>OPEN</td>
-                </tr>
-                <tr>
-                  <td>3</td>
-                  <td>N/R-00003</td>
-                  <td>MDDR 224013</td>
-                  <td>EY seat life vest box broken – 26 EA</td>
-                  <td>CLOSED</td>
-                </tr>
-                <tr>
-                  <td>4</td>
-                  <td>N/R-00009</td>
-                  <td>MDDR 224083</td>
-                  <td>AFT CAB ceiling decor bubbles</td>
-                  <td>CANCELLED</td>
-                </tr>
-              </tbody>
-            </table>
-          </section>
+              <section id="idd" class="card">
+                <h2>Incoming Defer Defects (IDD)</h2>
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Item</th>
+                      <th>Task Card</th>
+                      <th>Customer Ref</th>
+                      <th>Description</th>
+                      <th>Status</th>
+                    </tr>
+                  </thead>
+                  <tbody id="iddBody"></tbody>
+                </table>
+              </section>
 
           <!-- OUTGOING DEFER DEFECTS -->
-          <section id="odd" class="card">
-            <h2>Outgoing Defer Defects (ODD)</h2>
-            <table>
-              <thead>
-                <tr>
-                  <th>Item</th>
-                  <th>Task Card</th>
-                  <th>Customer Ref</th>
-                  <th>Description</th>
-                  <th>Status</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>1</td>
-                  <td>N/R-00015</td>
-                  <td>MDDR 224071</td>
-                  <td>G26 – Stowage light deferred (part not available)</td>
-                  <td>CLOSED</td>
-                </tr>
-                <tr>
-                  <td>2</td>
-                  <td>N/R-00162</td>
-                  <td>MDDR 224083</td>
-                  <td>PECY seat 10E broken PCU cradle</td>
-                  <td>CLOSED</td>
-                </tr>
-                <tr>
-                  <td>3</td>
-                  <td>N/R-00168</td>
-                  <td>MDDR 227280</td>
-                  <td>Missing PED outlet covers (7 EA)</td>
-                  <td>CLOSED</td>
-                </tr>
-                <tr>
-                  <td>4</td>
-                  <td>N/R-00009</td>
-                  <td>MDDR 224083</td>
-                  <td>Bubbles replace</td>
-                  <td>OPEN</td>
-                </tr>
-              </tbody>
-            </table>
-          </section>
+              <section id="odd" class="card">
+                <h2>Outgoing Defer Defects (ODD)</h2>
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Item</th>
+                      <th>Task Card</th>
+                      <th>Customer Ref</th>
+                      <th>Description</th>
+                      <th>Status</th>
+                    </tr>
+                  </thead>
+                  <tbody id="oddBody"></tbody>
+                </table>
+              </section>
+          
+              <!-- MATERIAL & TOOLING HIGHLIGHTS -->
+<section id="materials" class="card">
+  <h2>Material & Tooling Highlights</h2>
 
-          <!-- MATERIAL & TOOLING HIGHLIGHTS -->
-          <section id="materials" class="card">
-            <h2>Material & Tooling Highlights</h2>
-            <div class="section-note">
-              Production: Cabin Assignment Module PN Z054H0013230 – on hand
-              Workshop: MODKIT PN 251CHLD31R00 – ETA 27 JUL 25 Customer
-              Supplied: MODKIT PN 251CHLD33R00 – ESD TBA Tooling: Fan Cowl
-              Installation tools ETA 31 JUL 25 (AWB 180-05943836)
-            </div>
-          </section>
+  <div id="materialsBody" class="section-note">
+    <!-- injected by JS -->
+  </div>
+</section>
+
 
           <!-- ENGINEERING ITEMS -->
-          <section id="rfss" class="card">
-            <h2>Engineering Items (RFSS)</h2>
-            <table>
-              <thead>
-                <tr>
-                  <th>Area</th>
-                  <th>N/R Ref</th>
-                  <th>Description</th>
-                  <th>Status</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>AVI</td>
-                  <td>N/R-00287</td>
-                  <td>Main landing gear rubber grommet worn</td>
-                  <td>For CMP Evaluation</td>
-                </tr>
-                <tr>
-                  <td>CAB</td>
-                  <td>N/R-00037</td>
-                  <td>Flap track fairing erosion</td>
-                  <td>For NDT Inspection</td>
-                </tr>
-                <tr>
-                  <td>CRG / ENG</td>
-                  <td>N/R-00051</td>
-                  <td>Pylon forward fairing erosion</td>
-                  <td>Pending Airbus Reply</td>
-                </tr>
-                <tr>
-                  <td>FLC / LDG</td>
-                  <td>N/R-00287</td>
-                  <td>Landing gear rubber grommet</td>
-                  <td>Awaiting Repair Embodiment</td>
-                </tr>
-                <tr>
-                  <td>STR</td>
-                  <td>N/R-00051</td>
-                  <td>Pylon forward fairing erosion</td>
-                  <td>Awaiting OEM Reply</td>
-                </tr>
-              </tbody>
-            </table>
-          </section>
+            <section id="rfss" class="card">
+              <h2>Engineering Items (RFSS)</h2>
+              <table>
+                <thead>
+                  <tr>
+                    <th>Area</th>
+                    <th>N/R Ref</th>
+                    <th>Description</th>
+                    <th>Status</th>
+                  </tr>
+                </thead>
+                <tbody id="rfssBody"></tbody>
+              </table>
+            </section>
 
           <!-- ACTION ITEMS -->
-          <section id="actions" class="card">
-            <h2>Action Items</h2>
-            <table>
-              <thead>
-                <tr>
-                  <th>Item</th>
-                  <th>Description</th>
-                  <th>Responsible</th>
-                  <th>Target</th>
-                  <th>Status</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>1</td>
-                  <td>Deviations encountered during modification</td>
-                  <td>LTP / PAL</td>
-                  <td>30 JUL 25</td>
-                  <td>CLOSED</td>
-                </tr>
-                <tr>
-                  <td>2</td>
-                  <td>Replacement of nearly expiring emergency equipment</td>
-                  <td>PAL / LTP</td>
-                  <td>TBA</td>
-                  <td>OPEN</td>
-                </tr>
-              </tbody>
-            </table>
-          </section>
+            <section id="actions" class="card">
+              <h2>Action Items</h2>
+              <table>
+                <thead>
+                  <tr>
+                    <th>Item</th>
+                    <th>Description</th>
+                    <th>Responsible</th>
+                    <th>Target</th>
+                    <th>Status</th>
+                  </tr>
+                </thead>
+                <tbody id="actionBody"></tbody>
+              </table>
+            </section>
+
+
+          
         </main>
       </div>
   <!-- Loading screen -->
@@ -583,6 +381,24 @@
   <div id="app" class="app hidden">
     <!-- EVERYTHING ELSE GOES HERE -->
   </div>
+  <div id="woModal" class="wo-modal">
+  <div class="wo-card">
+    <h2>Enter Work Order</h2>
+    <p class="subtitle">Authorized access only</p>
+
+    <input
+      type="text"
+      id="workOrderInput"
+      placeholder="e.g. 65626874"
+    />
+
+    <button id="enterWorkOrderBtn">Continue</button>
+
+    <div class="error" id="woError"></div>
+  </div>
+  
+</div>
+
     <!-- External JS -->
     <script type="module" src="script.js"></script>
   </body>
