@@ -414,3 +414,96 @@ body.dark .theme-switch .knob {
     transform: rotate(360deg);
   }
 }
+.wo-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9998;
+}
+
+.wo-card {
+  width: 320px;
+  background: var(--card);
+  border: 1px solid var(--card-border);
+  border-radius: 10px;
+  padding: 1.75rem;
+  text-align: center;
+}
+
+.wo-card h2 {
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+
+.wo-card .subtitle {
+  font-size: 0.7rem;
+  color: var(--muted);
+  margin-bottom: 1rem;
+}
+
+.wo-card input {
+  width: 100%;
+  padding: 0.55rem;
+  font-size: 0.8rem;
+  border-radius: 6px;
+  border: 1px solid var(--card-border);
+  margin-bottom: 0.75rem;
+}
+
+.wo-card button {
+  width: 100%;
+  padding: 0.55rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  border-radius: 6px;
+  border: none;
+  background: var(--accent);
+  color: white;
+  cursor: pointer;
+}
+
+.wo-card .error {
+  margin-top: 0.5rem;
+  font-size: 0.7rem;
+  color: #c81e1e;
+}
+/* ===============================
+   BACKGROUND BLUR WHEN WO MODAL IS OPEN
+   =============================== */
+
+.app.blurred {
+  filter: blur(6px);
+  pointer-events: none; /* prevent clicks behind modal */
+  user-select: none;
+}
+
+.wo-modal {
+  backdrop-filter: blur(4px); /* subtle depth */
+}
+select {
+  width: 100%;
+  padding: 0.4rem;
+  font-size: 0.75rem;
+  border-radius: 6px;
+  border: 1px solid var(--card-border);
+  background: var(--card);
+  color: var(--text);
+}
+/* ===============================
+   REPORT SUMMARY – DAY INPUT
+   =============================== */
+
+.day-input {
+  width: 52px;
+  padding: 0.25rem 0.4rem;
+  font-size: 0.75rem;
+  border-radius: 6px;
+  border: 1px solid var(--card-border);
+  background: var(--card);
+  color: var(--text);
+}
