@@ -447,7 +447,7 @@ body.dark .theme-switch .knob {
 }
 
 .wo-card input {
-  width: 100%;
+  width: 80%;
   padding: 0.55rem;
   font-size: 0.8rem;
   border-radius: 6px;
