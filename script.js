@@ -10,6 +10,7 @@ import {
   getDoc,
   collection,
   getDocs,
+  setDoc,
 } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-firestore.js";
 const firebaseConfig = {
   apiKey: "AIzaSyCUNjFesHA_nMEsULylFlEdNZHy-MlT7_o",
@@ -21,8 +22,8 @@ const firebaseConfig = {
 };
 
 const app = initializeApp(firebaseConfig);
-const auth = getAuth();
-const db = getFirestore();
+const auth = getAuth(app);
+const db = getFirestore(app);
 
 const appEl = document.getElementById("app");
 const loadingEl = document.getElementById("authLoading");
@@ -843,4 +844,77 @@ async function handleDayInputChange() {
 
   // ✅ Day exists → load everything
   loadAllDayData(day);
+}
+const cancelBtn = document.getElementById("cancelWorkOrderBtn");
+
+if (cancelBtn) {
+  cancelBtn.addEventListener("click", async () => {
+    localStorage.removeItem("activeWorkOrder");
+    await signOut(auth);
+    window.location.href = "login.html";
+  });
+}
+const createReportBtn = document.getElementById("createReportBtn");
+
+if (createReportBtn) {
+  createReportBtn.addEventListener("click", async () => {
+    const woId = woInput.value.trim();
+
+    if (!woId) {
+      woError.textContent = "Enter a Work Order number first.";
+      return;
+    }
+
+    woError.textContent = "Checking existing Work Order…";
+
+    try {
+      const woRef = doc(db, "workorder", woId);
+      const woSnap = await getDoc(woRef);
+
+      // 🔒 PREVENT DUPLICATE
+      if (woSnap.exists()) {
+        woError.textContent = "Work Order already exists.";
+        return;
+      }
+
+      // ✅ CREATE BASE WORK ORDER
+      await setDoc(woRef, {
+        enabled: true,
+        createdAt: new Date(),
+      });
+
+      // ✅ AUTO-GENERATE DAY 1
+      const dayRef = doc(db, "workorder", woId, "days", "1");
+      await setDoc(dayRef, {
+        createdAt: new Date(),
+      });
+
+      // Optional: auto-create substructures
+      await setDoc(
+        doc(db, "workorder", woId, "days", "1", "layoverstatus", "main"),
+        {
+          inspection: "Not Started",
+          rectification: "Not Started",
+          reinstallation: "Not Started",
+          final: "Not Started",
+        },
+      );
+
+      // Save locally
+      localStorage.setItem("activeWorkOrder", woId);
+      localStorage.setItem("activeDay", "1");
+
+      woModal.style.display = "none";
+      appEl.classList.remove("hidden");
+
+      // Load app
+      loadGeneralInfo();
+      loadReportSummary();
+      wireDayInput();
+      loadAllDayData("1");
+    } catch (err) {
+      woError.textContent = "Failed to create report.";
+      console.error(err);
+    }
+  });
 }
