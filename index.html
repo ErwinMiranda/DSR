@@ -10,28 +10,26 @@
   </head>
 
   <body>
- <header>
-  <button class="sidebar-toggle" id="sidebarToggle">☰</button>
+    <header>
+      <button class="sidebar-toggle" id="sidebarToggle">☰</button>
 
-  <h1 id="reportTitle">
-  Daily Status Report ·
-  <span id="tailSign">—</span> ·
-  <span id="aircraftType">—</span>
-</h1>
+      <h1 id="reportTitle">
+        Daily Status Report ·
+        <span id="tailSign">—</span> ·
+        <span id="aircraftType">—</span>
+      </h1>
 
-  <div style="display:flex; gap:0.5rem; align-items:center;">
-    <button class="logout-btn" id="logoutBtn">Logout</button>
+      <div style="display: flex; gap: 0.5rem; align-items: center">
+        <button class="logout-btn" id="logoutBtn">Logout</button>
 
-    <div class="theme-switch" id="themeToggle" aria-label="Toggle theme">
-      <span class="icon sun">☀</span>
-      <span class="icon moon">☾</span>
-    </div>
-      <div class="knob"></div>
-    </div>
+        <div class="theme-switch" id="themeToggle" aria-label="Toggle theme">
+          <span class="icon sun">☀</span>
+          <span class="icon moon">☾</span>
 
-</header>
-
-
+          <div class="knob"></div>
+        </div>
+      </div>
+    </header>
 
     <div class="app">
       <nav class="sidebar">
@@ -53,48 +51,44 @@
         <a href="#actions">Action Items</a>
       </nav>
 
-     <div class="content">
+      <div class="content">
         <main>
           <!-- REPORT SUMMARY -->
-            <section id="summary" class="card">
-              <h2>Report Summary</h2>
-              <div class="grid">
-
-                <div class="item">
-                  <div class="label">Report Date</div>
-                  <span id="reportDate"></span>
-                </div>
-
-                <div class="item">
-                  <div class="label">Day No.</div>
-                  <input
-                          id="dayNoInput"
-                          type="number"
-                          min="1"
-                          placeholder="Day"
-                           class="day-input"
-                        />
-
-                </div>
-
-                <div class="item">
-                  <div class="label">Days</div>
-                  <span id="totalDays"></span>
-                </div>
-
-                <div class="item">
-                  <div class="label">Start Date</div>
-                  <span id="startDate"></span>
-                </div>
-
-                <div class="item">
-                  <div class="label">End Date</div>
-                  <span id="endDate"></span>
-                </div>
-
+          <section id="summary" class="card">
+            <h2>Report Summary</h2>
+            <div class="grid">
+              <div class="item">
+                <div class="label">Report Date</div>
+                <span id="reportDate"></span>
               </div>
-            </section>
 
+              <div class="item">
+                <div class="label">Day No.</div>
+                <input
+                  id="dayNoInput"
+                  type="number"
+                  min="1"
+                  placeholder="Day"
+                  class="day-input"
+                />
+              </div>
+
+              <div class="item">
+                <div class="label">Days</div>
+                <span id="totalDays"></span>
+              </div>
+
+              <div class="item">
+                <div class="label">Start Date</div>
+                <span id="startDate"></span>
+              </div>
+
+              <div class="item">
+                <div class="label">End Date</div>
+                <span id="endDate"></span>
+              </div>
+            </div>
+          </section>
 
           <!-- GENERAL INFORMATION -->
           <section id="general" class="card">
@@ -114,15 +108,15 @@
               </div>
               <div class="item">
                 <div class="label">Station</div>
-               <span id="gi-station"></span>
+                <span id="gi-station"></span>
               </div>
               <div class="item">
                 <div class="label">Aircraft Type</div>
-               <span id="gi-aircrafttype"></span>
+                <span id="gi-aircrafttype"></span>
               </div>
               <div class="item">
                 <div class="label">Bay</div>
-               <span id="gi-bay"></span>
+                <span id="gi-bay"></span>
               </div>
               <div class="item">
                 <div class="label">MSN</div>
@@ -130,7 +124,7 @@
               </div>
               <div class="item">
                 <div class="label">Work Order</div>
-               <span id="gi-workorder"></span>
+                <span id="gi-workorder"></span>
               </div>
               <div class="item">
                 <div class="label">Check Type</div>
@@ -138,7 +132,7 @@
               </div>
               <div class="item">
                 <div class="label">Work Pack</div>
-               <span id="gi-workpack"></span>
+                <span id="gi-workpack"></span>
               </div>
             </div>
           </section>
@@ -155,40 +149,35 @@
                   <th>Contact</th>
                 </tr>
               </thead>
-             <tbody id="contactsBody">
-                
-              </tbody>
+              <tbody id="contactsBody"></tbody>
             </table>
           </section>
 
           <!-- OVERALL LAYOVER STATUS -->
-<section id="status" class="card">
-  <h2>Overall Layover Status</h2>
-  <div class="grid">
+          <section id="status" class="card">
+            <h2>Overall Layover Status</h2>
+            <div class="grid">
+              <div class="item">
+                Inspection
+                <span id="ls-inspection" class="badge">-</span>
+              </div>
 
-    <div class="item">
-      Inspection
-      <span id="ls-inspection" class="badge">-</span>
-    </div>
+              <div class="item">
+                Rectification
+                <span id="ls-rectification" class="badge">-</span>
+              </div>
 
-    <div class="item">
-      Rectification
-      <span id="ls-rectification" class="badge">-</span>
-    </div>
+              <div class="item">
+                Reinstallation
+                <span id="ls-reinstallation" class="badge">-</span>
+              </div>
 
-    <div class="item">
-      Reinstallation
-      <span id="ls-reinstallation" class="badge">-</span>
-    </div>
-
-    <div class="item">
-      Final
-      <span id="ls-final" class="badge">-</span>
-    </div>
-
-  </div>
-</section>
-
+              <div class="item">
+                Final
+                <span id="ls-final" class="badge">-</span>
+              </div>
+            </div>
+          </section>
 
           <!-- LAYOVER DATES -->
           <section id="dates" class="card">
@@ -228,7 +217,6 @@
             </table>
           </section>
 
-
           <!-- MILESTONES -->
           <section id="milestones" class="card">
             <h2>Milestones</h2>
@@ -245,7 +233,6 @@
               <tbody id="milestonesBody"></tbody>
             </table>
           </section>
-
 
           <!-- AIRCRAFT TASK CARD STATUS -->
           <section id="taskcards" class="card">
@@ -265,16 +252,14 @@
             </table>
           </section>
 
+          <!-- GENERAL HIGHLIGHTS -->
+          <section id="highlights" class="card">
+            <h2>General Highlights</h2>
 
-        <!-- GENERAL HIGHLIGHTS -->
-        <section id="highlights" class="card">
-          <h2>General Highlights</h2>
-
-          <div id="highlightsBody" class="section-note">
-            <!-- injected by JS -->
-          </div>
-        </section>
-
+            <div id="highlightsBody" class="section-note">
+              <!-- injected by JS -->
+            </div>
+          </section>
 
           <!-- DETAILED WORK CENTER STATUS -->
           <section id="workcenter" class="card">
@@ -291,114 +276,113 @@
           </section>
 
           <!-- INCOMING DEFER DEFECTS -->
-              <section id="idd" class="card">
-                <h2>Incoming Defer Defects (IDD)</h2>
-                <table>
-                  <thead>
-                    <tr>
-                      <th>Item</th>
-                      <th>Task Card</th>
-                      <th>Customer Ref</th>
-                      <th>Description</th>
-                      <th>Status</th>
-                    </tr>
-                  </thead>
-                  <tbody id="iddBody"></tbody>
-                </table>
-              </section>
+          <section id="idd" class="card">
+            <h2>Incoming Defer Defects (IDD)</h2>
+            <table>
+              <thead>
+                <tr>
+                  <th>Item</th>
+                  <th>Task Card</th>
+                  <th>Customer Ref</th>
+                  <th>Description</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody id="iddBody"></tbody>
+            </table>
+          </section>
 
           <!-- OUTGOING DEFER DEFECTS -->
-              <section id="odd" class="card">
-                <h2>Outgoing Defer Defects (ODD)</h2>
-                <table>
-                  <thead>
-                    <tr>
-                      <th>Item</th>
-                      <th>Task Card</th>
-                      <th>Customer Ref</th>
-                      <th>Description</th>
-                      <th>Status</th>
-                    </tr>
-                  </thead>
-                  <tbody id="oddBody"></tbody>
-                </table>
-              </section>
-          
-              <!-- MATERIAL & TOOLING HIGHLIGHTS -->
-<section id="materials" class="card">
-  <h2>Material & Tooling Highlights</h2>
+          <section id="odd" class="card">
+            <h2>Outgoing Defer Defects (ODD)</h2>
+            <table>
+              <thead>
+                <tr>
+                  <th>Item</th>
+                  <th>Task Card</th>
+                  <th>Customer Ref</th>
+                  <th>Description</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody id="oddBody"></tbody>
+            </table>
+          </section>
 
-  <div id="materialsBody" class="section-note">
-    <!-- injected by JS -->
-  </div>
-</section>
+          <!-- MATERIAL & TOOLING HIGHLIGHTS -->
+          <section id="materials" class="card">
+            <h2>Material & Tooling Highlights</h2>
 
+            <div id="materialsBody" class="section-note">
+              <!-- injected by JS -->
+            </div>
+          </section>
 
           <!-- ENGINEERING ITEMS -->
-            <section id="rfss" class="card">
-              <h2>Engineering Items (RFSS)</h2>
-              <table>
-                <thead>
-                  <tr>
-                    <th>Area</th>
-                    <th>N/R Ref</th>
-                    <th>Description</th>
-                    <th>Status</th>
-                  </tr>
-                </thead>
-                <tbody id="rfssBody"></tbody>
-              </table>
-            </section>
+          <section id="rfss" class="card">
+            <h2>Engineering Items (RFSS)</h2>
+            <table>
+              <thead>
+                <tr>
+                  <th>Area</th>
+                  <th>N/R Ref</th>
+                  <th>Description</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody id="rfssBody"></tbody>
+            </table>
+          </section>
 
           <!-- ACTION ITEMS -->
-            <section id="actions" class="card">
-              <h2>Action Items</h2>
-              <table>
-                <thead>
-                  <tr>
-                    <th>Item</th>
-                    <th>Description</th>
-                    <th>Responsible</th>
-                    <th>Target</th>
-                    <th>Status</th>
-                  </tr>
-                </thead>
-                <tbody id="actionBody"></tbody>
-              </table>
-            </section>
-
-
-          
+          <section id="actions" class="card">
+            <h2>Action Items</h2>
+            <table>
+              <thead>
+                <tr>
+                  <th>Item</th>
+                  <th>Description</th>
+                  <th>Responsible</th>
+                  <th>Target</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody id="actionBody"></tbody>
+            </table>
+          </section>
         </main>
       </div>
-  <!-- Loading screen -->
-  <div id="authLoading" class="auth-loading">
-    <div class="spinner"></div>
-    <p>Checking access…</p>
-  </div>
+      <!-- Loading screen -->
+      <div id="authLoading" class="auth-loading">
+        <div class="spinner"></div>
+        <p>Checking access…</p>
+      </div>
 
-  <!-- App (hidden by default) -->
-  <div id="app" class="app hidden">
-    <!-- EVERYTHING ELSE GOES HERE -->
-  </div>
-  <div id="woModal" class="wo-modal">
-  <div class="wo-card">
-    <h2>Enter Work Order</h2>
-    <p class="subtitle">Authorized access only</p>
+      <!-- App (hidden by default) -->
+      <div id="app" class="app hidden">
+        <!-- EVERYTHING ELSE GOES HERE -->
+      </div>
+      <div id="woModal" class="wo-modal">
+        <div class="wo-card">
+          <h2>Enter Work Order</h2>
+          <p class="subtitle">Authorized access only</p>
 
-    <input
-      type="text"
-      id="workOrderInput"
-      placeholder="e.g. 65626874"
-    />
+          <input type="text" id="workOrderInput" placeholder="e.g. 65626874" />
 
-    <button id="enterWorkOrderBtn">Continue</button>
+          <div class="wo-actions">
+            <button id="enterWorkOrderBtn">Continue</button>
 
-    <div class="error" id="woError"></div>
-  </div>
-  
-</div>
+            <button id="createReportBtn" class="secondary">
+              Create New Report
+            </button>
 
+            <button id="cancelWorkOrderBtn" class="secondary">Cancel</button>
+          </div>
+
+          <div class="error" id="woError"></div>
+        </div>
+      </div>
+    </div>
     <!-- External JS -->
     <script type="module" src="script.js"></script>
   </body>
