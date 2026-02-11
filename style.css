@@ -507,3 +507,24 @@ select {
   background: var(--card);
   color: var(--text);
 }
+
+.wo-actions {
+  display: flex;
+  gap: 0.6rem;
+}
+
+.wo-actions button {
+  flex: 1;
+}
+/* Cancel Button – Lighter Secondary Style */
+.wo-card button.secondary {
+  background: transparent;
+  border: 1px solid var(--card-border);
+  color: var(--muted);
+  opacity: 0.85;
+}
+
+.wo-card button.secondary:hover {
+  background: var(--accent-soft);
+  color: var(--accent);
+}
