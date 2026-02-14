@@ -49,6 +49,9 @@
         <a href="#materials">Materials</a>
         <a href="#rfss">RFSS</a>
         <a href="#actions">Action Items</a>
+          <button id="createDayBtn" class="sidebar-action hidden">
+    + Create Day Report
+  </button>
       </nav>
 
       <div class="content">
@@ -92,7 +95,15 @@
 
           <!-- GENERAL INFORMATION -->
           <section id="general" class="card">
-            <h2>General Information</h2>
+            <div class="card-header">
+  <h2>General Information</h2>
+
+  <div class="card-actions hidden" id="generalInfoActions">
+    <button id="editGeneralBtn" class="icon-btn" title="Edit">✏️</button>
+    <button id="saveGeneralBtn" class="icon-btn hidden" title="Save">💾</button>
+  </div>
+</div>
+
             <div class="grid">
               <div class="item">
                 <div class="label">Customer</div>
@@ -139,23 +150,41 @@
 
           <!-- CONTACTS -->
           <section id="contacts" class="card">
-            <h2>Contacts</h2>
+            <div class="card-header">
+  <h2>Contacts</h2>
+
+  <div class="card-actions hidden" id="contactsActions">
+    <button id="editContactsBtn" class="icon-btn" title="Edit">✏️</button>
+    <button id="addContactBtn" class="icon-btn hidden" title="Add">➕</button>
+    <button id="saveContactsBtn" class="icon-btn hidden" title="Save">💾</button>
+  </div>
+</div>
+
             <table>
               <thead>
                 <tr>
                   <th>Category</th>
                   <th>Position</th>
                   <th>Name</th>
-                  <th>Contact</th>
+                  <th>Email</th>
+                  <th class="hidden" id="contactsDeleteHeader"></th>
                 </tr>
               </thead>
+
               <tbody id="contactsBody"></tbody>
             </table>
           </section>
 
           <!-- OVERALL LAYOVER STATUS -->
           <section id="status" class="card">
-            <h2>Overall Layover Status</h2>
+  <div class="card-header">
+    <h2>Overall Layover Status</h2>
+
+    <div class="card-actions hidden" id="layoverStatusActions">
+      <button id="editLayoverBtn" class="icon-btn" title="Edit">✏️</button>
+      <button id="saveLayoverBtn" class="icon-btn hidden" title="Save">💾</button>
+    </div>
+  </div>
             <div class="grid">
               <div class="item">
                 Inspection
@@ -180,8 +209,15 @@
           </section>
 
           <!-- LAYOVER DATES -->
-          <section id="dates" class="card">
-            <h2>Layover Dates</h2>
+         <section id="dates" class="card">
+  <div class="card-header">
+    <h2>Layover Dates</h2>
+
+    <div class="card-actions hidden" id="layoverDatesActions">
+      <button id="editLayoverDatesBtn" class="icon-btn" title="Edit">✏️</button>
+      <button id="saveLayoverDatesBtn" class="icon-btn hidden" title="Save">💾</button>
+    </div>
+  </div>
             <div class="grid">
               <div class="item">
                 <div class="label">Arrival</div>
@@ -204,7 +240,15 @@
 
           <!-- TAT RELEVANT ITEMS -->
           <section id="tat" class="card">
-            <h2>TAT Relevant Items</h2>
+  <div class="card-header">
+    <h2>TAT Relevant Items</h2>
+
+    <div class="card-actions hidden" id="tatActions">
+      <button id="editTatBtn" class="icon-btn" title="Edit">✏️</button>
+      <button id="addTatBtn" class="icon-btn hidden" title="Add">➕</button>
+      <button id="saveTatBtn" class="icon-btn hidden" title="Save">💾</button>
+    </div>
+  </div>
             <table>
               <thead>
                 <tr>
@@ -219,7 +263,15 @@
 
           <!-- MILESTONES -->
           <section id="milestones" class="card">
-            <h2>Milestones</h2>
+  <div class="card-header">
+    <h2>Milestones</h2>
+
+    <div class="card-actions hidden" id="milestoneActions">
+      <button id="editMilestoneBtn" class="icon-btn" title="Edit">✏️</button>
+      <button id="addMilestoneBtn" class="icon-btn hidden" title="Add">➕</button>
+      <button id="saveMilestoneBtn" class="icon-btn hidden" title="Save">💾</button>
+    </div>
+  </div>
             <table>
               <thead>
                 <tr>
@@ -236,7 +288,15 @@
 
           <!-- AIRCRAFT TASK CARD STATUS -->
           <section id="taskcards" class="card">
-            <h2>Aircraft General Task Card Status</h2>
+  <div class="card-header">
+    <h2>Aircraft General Task Card Status</h2>
+
+    <div class="card-actions hidden" id="taskcardActions">
+      <button id="editTaskcardBtn" class="icon-btn" title="Edit">✏️</button>
+      <button id="addTaskcardBtn" class="icon-btn hidden" title="Add">➕</button>
+      <button id="saveTaskcardBtn" class="icon-btn hidden" title="Save">💾</button>
+    </div>
+  </div>
             <table>
               <thead>
                 <tr>
@@ -254,7 +314,16 @@
 
           <!-- GENERAL HIGHLIGHTS -->
           <section id="highlights" class="card">
-            <h2>General Highlights</h2>
+  <div class="card-header">
+    <h2>General Highlights</h2>
+
+    <div class="card-actions hidden" id="highlightsActions">
+      <button id="editHighlightsBtn" class="icon-btn" title="Edit">✏️</button>
+      <button id="addParagraphBtn" class="icon-btn hidden" title="Add Paragraph">➕P</button>
+      <button id="addBulletBtn" class="icon-btn hidden" title="Add Bullet List">➕•</button>
+      <button id="saveHighlightsBtn" class="icon-btn hidden" title="Save">💾</button>
+    </div>
+  </div>
 
             <div id="highlightsBody" class="section-note">
               <!-- injected by JS -->
@@ -263,7 +332,15 @@
 
           <!-- DETAILED WORK CENTER STATUS -->
           <section id="workcenter" class="card">
-            <h2>Detailed Work Center Status</h2>
+  <div class="card-header">
+    <h2>Detailed Work Center Status</h2>
+
+    <div class="card-actions hidden" id="workcenterActions">
+      <button id="editWorkcenterBtn" class="icon-btn" title="Edit">✏️</button>
+      <button id="addWorkcenterBtn" class="icon-btn hidden" title="Add">➕</button>
+      <button id="saveWorkcenterBtn" class="icon-btn hidden" title="Save">💾</button>
+    </div>
+  </div>
             <table>
               <thead>
                 <tr>
@@ -277,7 +354,15 @@
 
           <!-- INCOMING DEFER DEFECTS -->
           <section id="idd" class="card">
-            <h2>Incoming Defer Defects (IDD)</h2>
+  <div class="card-header">
+    <h2>Incoming Defer Defects (IDD)</h2>
+
+    <div class="card-actions hidden" id="iddActions">
+      <button id="editIddBtn" class="icon-btn" title="Edit">✏️</button>
+      <button id="addIddBtn" class="icon-btn hidden" title="Add">➕</button>
+      <button id="saveIddBtn" class="icon-btn hidden" title="Save">💾</button>
+    </div>
+  </div>
             <table>
               <thead>
                 <tr>
@@ -294,7 +379,15 @@
 
           <!-- OUTGOING DEFER DEFECTS -->
           <section id="odd" class="card">
-            <h2>Outgoing Defer Defects (ODD)</h2>
+  <div class="card-header">
+    <h2>Outgoing Defer Defects (ODD)</h2>
+
+    <div class="card-actions hidden" id="oddActions">
+      <button id="editOddBtn" class="icon-btn" title="Edit">✏️</button>
+      <button id="addOddBtn" class="icon-btn hidden" title="Add">➕</button>
+      <button id="saveOddBtn" class="icon-btn hidden" title="Save">💾</button>
+    </div>
+  </div>
             <table>
               <thead>
                 <tr>
@@ -310,8 +403,16 @@
           </section>
 
           <!-- MATERIAL & TOOLING HIGHLIGHTS -->
-          <section id="materials" class="card">
-            <h2>Material & Tooling Highlights</h2>
+         <section id="materials" class="card">
+  <div class="card-header">
+    <h2>Material & Tooling Highlights</h2>
+
+    <div class="card-actions hidden" id="materialsActions">
+      <button id="editMaterialsBtn" class="icon-btn" title="Edit">✏️</button>
+      <button id="addMaterialsBtn" class="icon-btn hidden" title="Add">➕</button>
+      <button id="saveMaterialsBtn" class="icon-btn hidden" title="Save">💾</button>
+    </div>
+  </div>
 
             <div id="materialsBody" class="section-note">
               <!-- injected by JS -->
@@ -320,7 +421,15 @@
 
           <!-- ENGINEERING ITEMS -->
           <section id="rfss" class="card">
-            <h2>Engineering Items (RFSS)</h2>
+  <div class="card-header">
+    <h2>Engineering Items (RFSS)</h2>
+
+    <div class="card-actions hidden" id="rfssActions">
+      <button id="editRfssBtn" class="icon-btn" title="Edit">✏️</button>
+      <button id="addRfssBtn" class="icon-btn hidden" title="Add">➕</button>
+      <button id="saveRfssBtn" class="icon-btn hidden" title="Save">💾</button>
+    </div>
+  </div>
             <table>
               <thead>
                 <tr>
@@ -336,7 +445,15 @@
 
           <!-- ACTION ITEMS -->
           <section id="actions" class="card">
-            <h2>Action Items</h2>
+  <div class="card-header">
+    <h2>Action Items</h2>
+
+    <div class="card-actions hidden" id="actionActions">
+      <button id="editActionBtn" class="icon-btn" title="Edit">✏️</button>
+      <button id="addActionBtn" class="icon-btn hidden" title="Add">➕</button>
+      <button id="saveActionBtn" class="icon-btn hidden" title="Save">💾</button>
+    </div>
+  </div>
             <table>
               <thead>
                 <tr>
