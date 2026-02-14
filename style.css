@@ -528,3 +528,77 @@ select {
   background: var(--accent-soft);
   color: var(--accent);
 }
+/* Sidebar Action Button */
+.sidebar-action {
+  margin-top: 1rem;
+  padding: 0.45rem 0.6rem;
+  font-size: 0.65rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border-radius: 6px;
+  border: 1px solid var(--card-border);
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.sidebar-action:hover {
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+
+.sidebar-action.hidden {
+  display: none;
+}
+/* Card header with actions */
+.card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.85rem;
+}
+
+/* Action icons */
+.card-actions {
+  display: flex;
+  gap: 0.35rem;
+}
+
+/* Minimal icon button */
+.icon-btn {
+  background: transparent;
+  border: 1px solid var(--card-border);
+  border-radius: 6px;
+  padding: 0.25rem 0.35rem;
+  font-size: 0.7rem;
+  cursor: pointer;
+  color: var(--muted);
+  line-height: 1;
+}
+
+.icon-btn:hover {
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+
+.icon-btn.hidden,
+.card-actions.hidden {
+  display: none;
+}
+.editing {
+  outline: 1px dashed var(--accent);
+  padding: 2px 4px;
+  border-radius: 4px;
+}
+.delete-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 0.75rem;
+  color: var(--muted);
+}
+
+.delete-btn:hover {
+  color: #c81e1e;
+}
